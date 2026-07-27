@@ -1,0 +1,34 @@
+# Byte-compiled
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution
+dist/
+build/
+*.egg-info/
+
+# Checkpoints and model weights (too large for GitHub)
+checkpoints/
+*.pt
+*.pth
+
+# Data files (use download_data.py)
+data/**/*.npy
+data/**/*.hdf5
+data/**/*.h5
+
+# Results
+results/
+
+# Plots
+plots/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

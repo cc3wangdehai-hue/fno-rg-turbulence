@@ -1,0 +1,30 @@
+# FNO×RG Compressible Turbulence Configuration
+system: compressible
+
+data:
+  train_path: data/compressible/train_data.npy
+  val_path: data/compressible/val_data.npy
+  num_time_steps: 3
+
+model:
+  num_modes: 64
+  lifting_dim: 128
+  num_layers: 4
+  activation: silu
+  use_3d: false
+
+training:
+  batch_size: 8
+  learning_rate: 1.0e-3
+  epochs: 500
+  weight_decay: 1.0e-5
+  num_workers: 4
+  eta_min: 1.0e-6
+  max_scale_weight: 2.0
+
+rg:
+  regulator: litim
+  initial_couplings: [1.0, 0.5, 1.4, 0.5]  # [nu, lambda, gamma, Ma]
+
+checkpoint_dir: checkpoints
+output_dir: results
