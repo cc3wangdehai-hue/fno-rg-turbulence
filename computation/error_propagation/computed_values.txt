@@ -1,0 +1,29 @@
+{
+  "parameters": {
+    "d": 3,
+    "eps_d": 1,
+    "A1": 0.2,
+    "A2": 0.002,
+    "eps_FNO": 0.063,
+    "g_star": 5.3,
+    "eps_d_eff": 1.0038200000000002
+  },
+  "propagation": {
+    "delta_lambda_over_lambda": 0.063,
+    "delta_A1": 0,
+    "delta_A2_FNO": 0.000252,
+    "delta_A2_systematic": 0.0008,
+    "delta_A2_total": 0.0008387514530538829,
+    "beta_prime": 0.9514600000000001,
+    "dg_dA2": 156.47215857734426,
+    "delta_g_star_FNO": 0.03943098396149075,
+    "delta_g_star_total": 0.1312412503692251,
+    "delta_g_star_eff": 0.13177029259666426
+  },
+  "exponents": {
+    "eta_ref": 0.2809,
+    "delta_eta_ref": 0.01391157253913786,
+    "zeta_2_K41": 0.6666666666666666,
+    "delta_zeta_2": 0.02782314507827572
+  }
+}
