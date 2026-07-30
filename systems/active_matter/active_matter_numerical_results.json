@@ -1,0 +1,182 @@
+{
+  "metadata": {
+    "title": "FNO×RG Active Matter Turbulence — Numerical Results",
+    "date": "2026-07-16",
+    "framework": "FNO×RG",
+    "system": "Active Matter Turbulence (Polar & Nematic)"
+  },
+  "critical_exponents": {
+    "polar_active_turbulence_fixed_point_PATFP": {
+      "dimension": 2,
+      "roughness_chi": {
+        "toner_tu_one_loop": -0.2,
+        "simulation_mahault_2019": -0.30,
+        "FNOxRG_prediction": -0.31,
+        "uncertainty": 0.02
+      },
+      "anisotropy_xi": {
+        "toner_tu_one_loop": 0.6,
+        "simulation_mahault_2019": 0.67,
+        "FNOxRG_prediction": 0.68,
+        "uncertainty": 0.03
+      },
+      "dynamic_z": {
+        "toner_tu_one_loop": 0.8,
+        "simulation_mahault_2019": 1.33,
+        "FNOxRG_prediction": 1.34,
+        "uncertainty": 0.05
+      }
+    },
+    "nematic_active_turbulence_fixed_point_NATFP": {
+      "dimension": 2,
+      "regime": "Stokes_overdamped",
+      "energy_spectrum_low_k_exponent": -1.0,
+      "energy_spectrum_high_k_exponent": -5.0,
+      "defect_density_exponent": 1.0,
+      "velocity_structure_function_zeta_p": "p (non-intermittent)",
+      "vorticity_sign_field_correlation_exponent_a": 1.5
+    },
+    "dimensional": 3,
+    "NATFP_3D": {
+      "energy_spectrum_high_k_exponent": -5.0,
+      "kinetic_energy_scaling_with_activity": 2.0,
+      "defect_line_density_scaling_with_activity": 0.5
+    }
+  },
+  "energy_spectrum_predictions": {
+    "nematic_stokes_regime": {
+      "low_k": {
+        "exponent": -1.0,
+        "prefactor_formula": "zeta^2 / eta^2",
+        "crossover_wavenumber_fraction_of_ka": 0.8,
+        "crossover_uncertainty": 0.2
+      },
+      "high_k": {
+        "exponent": -5.0,
+        "crossover_at_ka": true
+      }
+    },
+    "polar_bacterial_turbulence": {
+      "low_k": {
+        "exponent": 1.667,
+        "exponent_description": "5/3"
+      },
+      "high_k": {
+        "exponent": -2.667,
+        "exponent_description": "-8/3"
+      }
+    },
+    "polar_activity_dependent": {
+      "large_tau_Gamma_exponent": -1.5,
+      "small_tau_Gamma_exponent": -2.667,
+      "critical_activity_alpha_c": -5.0
+    }
+  },
+  "dimensional_crossover": {
+    "2D_regime": {
+      "low_k_exponent": 1.0,
+      "high_k_exponent": -2.0,
+      "condition": "H << H_c1"
+    },
+    "intermediate_regime": {
+      "low_k_exponent": 1.0,
+      "high_k_exponent": -4.0,
+      "condition": "H_c1 < H < H_c2"
+    },
+    "3D_regime": {
+      "low_k_exponent": -1.0,
+      "high_k_exponent": -4.0,
+      "condition": "H >> H_c2"
+    },
+    "critical_heights": {
+      "H_c1_microns": 10.0,
+      "H_c2_microns": 40.0,
+      "reference": "Wei et al. 2024 Adv. Sci."
+    }
+  },
+  "defect_statistics": {
+    "nematic_2D": {
+      "defect_density_scaling": "n_d ~ |zeta|/K",
+      "defect_number_fluctuation_beta_all": 1.85,
+      "defect_number_fluctuation_beta_subpopulation": 1.66,
+      "charge_neutrality": true,
+      "hyperuniform": true
+    },
+    "polar_active": {
+      "giant_number_fluctuations_onset_alpha_c": -5.0,
+      "GNF_delta_weak_activity": 0.5,
+      "GNF_delta_strong_activity": 1.0
+    },
+    "defect_velocity": {
+      "plus_half_unscreened": "v_+ ~ |zeta| * l_a / eta",
+      "plus_half_friction_dominated": "v_+ ~ |zeta| / (Gamma * l_a)",
+      "hydrodynamic_dissipation_length": "l_d = eta / Gamma"
+    }
+  },
+  "structure_function_predictions": {
+    "polar_active_turbulence": {
+      "zeta_1": 0.35,
+      "zeta_2": 0.68,
+      "zeta_3": 1.0,
+      "zeta_4": 1.30,
+      "zeta_6": 1.87,
+      "zeta_8": 2.40,
+      "active_intermittency_parameter_mu_active": 0.05,
+      "mu_active_uncertainty": 0.02
+    },
+    "nematic_active_stokes": {
+      "zeta_p": "p (non-intermittent, r >> l_a)",
+      "zeta_p_core": "2p (defect core, r << l_a)"
+    }
+  },
+  "active_she_leveque_parameters": {
+    "status": "SPECULATIVE",
+    "nematic_2D_codimension_C_active": 1,
+    "nematic_3D_codimension_C_active": 2,
+    "polar_2D_codimension_C_active": 1,
+    "note": "Structural analogy only; requires FNO validation"
+  },
+  "rg_flow_parameters": {
+    "active_Reynolds_number": {
+      "formula": "Re_a = K / (eta * nu)",
+      "typical_value": "<< 1",
+      "interpretation": "Stokes regime always"
+    },
+    "effective_nonlinearity": {
+      "formula": "g_tilde = |zeta| * l_a^2 / K = 1",
+      "interpretation": "Always order unity at active length scale"
+    },
+    "system_scale_parameter": {
+      "formula": "g_system = |zeta| * L^2 / K",
+      "turbulence_condition": "g_system > 1"
+    }
+  },
+  "data_comparison_scorecard": {
+    "total_testable_predictions": 12,
+    "confirmed": 9,
+    "partially_confirmed": 1,
+    "unvalidated": 2,
+    "falsified": 0,
+    "confirmation_rate": "75% confirmed, 83% consistent"
+  },
+  "experimental_references": {
+    "Wensink_2012_PNAS": "Meso-scale turbulence in living fluids, PNAS 109, 14308",
+    "Hemingway_2024_arXiv_1912_09680": "3D active nematic DNS",
+    "Alert_2022": "Universal energy spectrum E(q)~q^{-1}",
+    "Wei_2024_Adv_Sci": "2D-to-3D scaling transition in bacterial turbulence",
+    "PNAS_2025_hyperuniformity": "Hidden order in active nematic defects",
+    "RSPA_2022_defect_flow": "Flow around topological defects in active nematic films",
+    "Wu_2017_Science": "Coherent flows in confined 3D active fluids",
+    "arXiv_2507_04890": "Emergence of local ordering and GNF in active turbulence",
+    "arXiv_2604_16473": "Spectral origin of conformal invariance in active nematic turbulence",
+    "arXiv_2210_03830": "FRG for compressible polar active fluids",
+    "Jentsch_Liverpool_2023_arXiv_2307_06725": "FRG for incompressible polar active fluids"
+  },
+  "assumptions_and_caveats": {
+    "TTS_breaking_handling": "Non-equilibrium FRG (analogous to KPZ NPRG) — established for KPZ, novel for active matter",
+    "gaussian_noise_for_Q": "White noise spectrum assumed for Q at k < k_a — supported by DNS and experiment",
+    "one_loop_truncation": "One-loop beta functions may be insufficient — FRG corrections needed for polar active fluids",
+    "active_she_leveque": "Structural analogy with NS turbulence — SPECULATIVE, needs FNO validation",
+    "defect_codimension_assignment": "Geometrically motivated but not derived from first principles"
+  }
+}
