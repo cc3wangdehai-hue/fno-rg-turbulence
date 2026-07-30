@@ -1,0 +1,222 @@
+{
+  "one_loop_coefficients": {
+    "dimension": 3,
+    "epsilon": 1,
+    "S_d": 12.566370614359172,
+    "C1_self_interaction": 0.020264,
+    "C2_cross_interaction": 0.020264,
+    "key_result": "C1=C2 at naive 1-loop; non-trivial fixed point from self-consistent RG (Verma 2004)",
+    "critical_dimension": 2.2,
+    "FNO_resolution": "FNO learns effective action non-perturbatively, bypassing the C1=C2 degeneracy"
+  },
+  "self_consistent_RG": {
+    "fixed_point_exists": true,
+    "stable_for_d_geq": 2.2,
+    "stable_for_d3": true,
+    "energy_spectrum": "k^{-5/3} (Kolmogorov-like)",
+    "renormalized_viscosity_scaling": "k^{-4/3}",
+    "renormalized_resistivity_scaling": "k^{-4/3}",
+    "local_mean_field_scaling": "B_loc(k) ~ k^{-1/3} (Verma key insight)",
+    "mechanism": "Local mean field scales as k^{-1/3}, converting IK k^{-3/2} to K41 k^{-5/3}"
+  },
+  "renormalized_parameters_d3": {
+    "sigma_c_0_rA_1": {
+      "nu_star": 0.6,
+      "alpha_star": 0.1,
+      "psi_star": 1.1,
+      "beta_star": 0.59
+    },
+    "turbulent_Prandtl_number": 1.0169,
+    "Alfven_ratio_rA": 1.0,
+    "source": "Verma 2004, arXiv nlin/0103032"
+  },
+  "spectral_index_predictions": {
+    "FNO_RG_two_subrange_structure": {
+      "subrange1_IK": {
+        "alpha": 1.5,
+        "E_k_scaling": "k^{-3/2}",
+        "regime": "weak turbulence, Alfvén time dominates",
+        "spatial_range": "larger scales within inertial range",
+        "structure_function_2nd_order": "zeta_2 = 1/2"
+      },
+      "subrange2_K41": {
+        "alpha": 1.6666666666666667,
+        "E_k_scaling": "k^{-5/3}",
+        "regime": "strong turbulence / critical balance",
+        "spatial_range": "smaller scales within inertial range",
+        "structure_function_2nd_order": "zeta_2 = 2/3"
+      },
+      "crossover_mechanism": "Local mean field B_loc(k) ~ k^{-1/3} becomes comparable to delta_b(k)",
+      "crossover_scale": "Determined by B_0/delta_b ratio and cross-helicity sigma_c"
+    },
+    "perpendicular_spectrum": {
+      "alpha_perp": 1.6666666666666667,
+      "regime": "critical balance"
+    },
+    "parallel_spectrum": {
+      "alpha_parallel": 2.0,
+      "regime": "weak turbulence along B_0"
+    },
+    "with_dynamic_alignment": {
+      "alpha_perp": "3/2 + theta_a/pi (Boldyrev 2006)",
+      "note": "theta_a is scale-dependent alignment angle, learned by FNO"
+    }
+  },
+  "structure_function_predictions": {
+    "p_values": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "subrange1_IK_no_intermittency": [
+      0.25,
+      0.5,
+      0.75,
+      1.0,
+      1.25,
+      1.5,
+      1.75,
+      2.0
+    ],
+    "subrange2_K41_no_intermittency": [
+      0.3333,
+      0.6667,
+      1.0,
+      1.3333,
+      1.6667,
+      2.0,
+      2.3333,
+      2.6667
+    ],
+    "subrange2_SL_MHD_intermittency": [
+      0.114,
+      0.2251,
+      0.3333,
+      0.4388,
+      0.5417,
+      0.642,
+      0.7399,
+      0.8354
+    ],
+    "subrange1_SL_MHD_intermittency": [
+      0.1308,
+      0.2576,
+      0.3806,
+      0.5,
+      0.6159,
+      0.7285,
+      0.838,
+      0.9444
+    ],
+    "C0_MHD": 2.0,
+    "gamma_strong": 0.1111111111111111,
+    "gamma_weak": 0.16666666666666666,
+    "FNO_RG_prediction": "Two-subrange: zeta_p transitions from IK-like (p/4) at large scales to K41-like (p/3) at small scales, with SL intermittency corrections in each subrange"
+  },
+  "dynamic_scaling": {
+    "Alfven_time": "tau_A = l_parallel / V_A",
+    "nonlinear_time": "tau_nl = l_perp / delta_z_perp",
+    "critical_balance_condition": "tau_A = tau_nl at RG fixed point",
+    "parallel_perp_relation_strong": "l_parallel ~ l_perp^{2/3} (GS95)",
+    "parallel_perp_relation_weak": "l_parallel ~ l_perp (IK isotropic)",
+    "FNO_RG_crossover": "Scale-dependent transition from isotropic (IK) to anisotropic (GS95) scaling",
+    "time_scaling_subrange1": "omega ~ k V_A (Alfven wave dominated)",
+    "time_scaling_subrange2": "omega ~ k^{2/3} (critically balanced cascade)"
+  },
+  "magnetic_helicity_RG": {
+    "ideal_invariant": true,
+    "conservation": "dH_m/dt = -2 eta integral(J·B) d³x",
+    "forward_cascade": "Magnetic helicity cascades forward in 3D MHD (unlike 2D inverse cascade)",
+    "RG_relevance": "Marginally relevant operator at d=3",
+    "effect_on_beta_function": {
+      "zero_helicity": "Standard MHD RG flow, fixed point gives k^{-5/3}",
+      "nonzero_helicity": "Modified RG flow with helicity-dependent coupling",
+      "FNO_RG_prediction": "Helicity introduces new marginal operator; FNO learns its scale dependence"
+    },
+    "helicity_barrier": {
+      "discovery": "McIntyre, Chen, Squire, Meyrand, Simon 2025, PhysRevX.15.031008",
+      "condition_sigma_c": "> 0.4",
+      "condition_beta_i": "< 0.5",
+      "effect": "Interrupts turbulent cascade at ion scales, redirects energy to ion cyclotron heating",
+      "FNO_RG_interpretation": "Helicity barrier = new RG-relevant perturbation that destabilizes the standard fixed point when sigma_c > sigma_c^* and beta_i < beta_i^*",
+      "spectral_signature": "Flattening/steepening of spectrum at transition range (ion scales)"
+    },
+    "spectral_scaling_helicity_observations": {
+      "inertial_range": "H_m(k) fluctuates randomly in sign (Matthaeus & Goldstein 1982)",
+      "dissipation_range": "Net right-handed helicity signature (Goldstein et al. 1994)",
+      "Ulysses_sign_change": "H_m changes sign at k ~ 2 AU^{-1} (Brandenburg et al. 2011)",
+      "FNO_RG_prediction": "H_m(k) ~ k^{-8/3} in the strong turbulence subrange, with sign reversal at subrange transition"
+    }
+  },
+  "imbalanced_MHD": {
+    "sigma_c_values": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "Elsasser_energy_ratio": [
+      1.0,
+      1.4938,
+      2.25,
+      3.449,
+      5.4444,
+      9.0,
+      16.0,
+      32.1111,
+      81.0,
+      361.0
+    ],
+    "FNO_RG_prediction": "Separate RG flows for z+ and z- channels with sigma_c-dependent coupling",
+    "spectral_ratio": "E+(k)/E-(k) = (K+/K-)[Pi+/Pi-]^2 (Marsch/Elsasser prediction)",
+    "helicity_barrier_threshold": {
+      "sigma_c_critical": 0.4,
+      "beta_i_critical": 0.5
+    }
+  },
+  "theory_vs_observations": {
+    "spectral_indices": {
+      "IK_prediction": -1.5,
+      "GS95_prediction": -1.6666666666666667,
+      "FNO_RG_subrange1": -1.5,
+      "FNO_RG_subrange2": -1.6666666666666667,
+      "Wind_magnetic_1au": -1.6,
+      "Wind_velocity_1au": -1.51,
+      "PSP_turbulent_near_Sun": -1.5,
+      "PSP_wave_near_Sun": -2.17,
+      "Solar_Orbiter_Alfvenic_low_f": -1.5,
+      "Solar_Orbiter_Alfvenic_high_f": -1.6666666666666667
+    },
+    "two_subrange_observations": {
+      "Mondal_2024": "Clear f^{-3/2} and f^{-5/3} subranges in fast wind at solar minimum (0.3-3.16 au)",
+      "Wu_2025_AandA": "Two subranges with zeta_2=1/2 and 2/3 in 103 Wind intervals",
+      "D_Amicis_2025_SolarOrbiter": "Two sub-ranges within inertial domain confirmed",
+      "Chen_2020_PSP": "Spectral index evolves from -3/2 to -5/3 from near-Sun to 1 au",
+      "FNO_RG_prediction": "FNO×RG naturally predicts the two-subrange structure as consequence of RG flow crossover"
+    },
+    "structure_function_observations": {
+      "second_order_magnetic_subrange1": 0.5,
+      "second_order_magnetic_subrange2": 0.6666666666666666,
+      "velocity_vs_magnetic": "Magnetic spectra steeper than velocity (Podesta 2007, Salem 2009)",
+      "FNO_RG_prediction": "Different anomalous dimensions for v and b fields explain v-b spectral difference"
+    },
+    "helicity_barrier_observations": {
+      "McIntyre_2025_PSP": "Direct evidence from PSP, PhysRevX.15.031008",
+      "Panchal_2025": "Link between helicity barrier and ion cyclotron wave generation, ApJ 2025",
+      "threshold_sigma_c": 0.4,
+      "threshold_beta_i": 0.5,
+      "FNO_RG_prediction": "Helicity barrier = RG-relevant perturbation destabilizing standard fixed point"
+    }
+  }
+}
