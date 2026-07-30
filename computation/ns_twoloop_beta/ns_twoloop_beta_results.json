@@ -1,0 +1,172 @@
+{
+  "metadata": {
+    "description": "Two-loop RG beta function for Navier-Stokes turbulence — first-principles derivation",
+    "method": "Field-theoretic RG with dimensional regularization (MS scheme)",
+    "key_reference": "Adzhemyan, Antonov, Kompaniets, Vasil'ev, arXiv:nlin/0207007 (2002); Int. J. Mod. Phys. B 17, 2137 (2003)",
+    "foundational_references": [
+      "Forster, Nelson, Stephen, Phys. Rev. A 16, 732 (1977)",
+      "De Dominicis, Martin, Phys. Rev. A 19, 419 (1979)",
+      "Fournier, Frisch, Phys. Rev. A 28, 1000 (1983)",
+      "Yakhot, Orszag, J. Sci. Comput. 1, 3 (1986)"
+    ],
+    "physical_parameters": {"d": 3, "epsilon": 2},
+    "date_computed": "2026-07-16"
+  },
+  "one_loop": {
+    "a_11": -0.0025330295910584400,
+    "a_11_formula": "-(d-1)*S_bar_d / [8*(d+2)] = -1/(40*pi^2) for d=3",
+    "gamma_nu": "g/(20*pi^2)",
+    "beta_function": "-2*epsilon*g + 3*g^2/(20*pi^2)",
+    "beta_standard_form": "beta(g) = -2*eps*g + A*g^2, A = 3/(20*pi^2)",
+    "g_star": 263.189450695716,
+    "g_star_formula": "40*pi^2*epsilon/3",
+    "omega": 4.0,
+    "omega_formula": "2*epsilon",
+    "eta_nu": 2.6666666666666665,
+    "eta_nu_formula": "4*epsilon/3 (exact, all orders)",
+    "eta_lambda": 3.0,
+    "eta_lambda_formula": "d + 2*epsilon - 4",
+    "criterion_3eta_nu_gt_eta_lambda": true,
+    "Delta_phi": -0.3333333333333333,
+    "Delta_phi_formula": "1 - 2*epsilon/3",
+    "Delta_omega": 0.6666666666666666,
+    "E_k_exponent": -1.6666666666666667,
+    "E_k_exponent_note": "-5/3 (Kolmogorov, exact at all orders)",
+    "zeta_n_formula": "n/3 (K41, exact at 1-loop)",
+    "C_K": 1.47,
+    "skewness": -0.45
+  },
+  "two_loop": {
+    "a_11": -0.0025330295910584400,
+    "a_22_over_a11_sq": 1.0,
+    "a_21_over_a11_sq": -1.6515,
+    "a_21_over_a11_sq_note": "3*lambda/2 where lambda=-1.101",
+    "lambda_param": -1.101,
+    "lambda_formula": "2*a_21/(3*a_11^2)",
+    "gamma_nu": "-2*(a_11*g + 2*a_21*g^2)",
+    "beta_function": "g*(-2*epsilon + 3*gamma_nu(g))",
+    "beta_standard_form": "beta(g) = -2*eps*g + A*g^2 + B*g^3",
+    "A_coefficient": 0.01519817754635064,
+    "A_formula": "-6*a_11 = 3/(20*pi^2)",
+    "B_coefficient": 0.00012715702270208394,
+    "B_formula": "-12*a_21 = -18*lambda*a_11^2",
+    "g_star_epsilon_expansion": {
+      "formula": "(40*pi^2*epsilon/3)*(1 + lambda*epsilon) + O(epsilon^3)",
+      "at_eps_0.1": 11.71060,
+      "at_eps_0.5": 29.57586,
+      "at_eps_1.0": -13.29108,
+      "at_eps_2.0": -316.35368,
+      "note": "Negative for epsilon > 1/|lambda| ≈ 0.908; signals breakdown of naive epsilon expansion"
+    },
+    "g_star_exact_quadratic": {
+      "formula": "Solve 12*a_21*g^2 + 6*a_11*g + 2*eps = 0",
+      "at_eps_2.0": 127.39784,
+      "at_eps_0.5": 47.17649,
+      "note": "Physical root (g>0); always exists and is IR stable"
+    },
+    "omega_epsilon_expansion": {
+      "formula": "2*epsilon*(1 - lambda*epsilon) + O(epsilon^3)",
+      "at_eps_0.1": 0.22202,
+      "at_eps_0.5": 1.55050,
+      "at_eps_1.0": 4.20200,
+      "at_eps_2.0": 12.80800,
+      "note": "Always positive — IR stability maintained at 2-loop"
+    },
+    "omega_exact_quadratic": {
+      "at_eps_2.0": 6.06378,
+      "at_eps_0.5": 1.28300,
+      "note": "From exact quadratic solution, always positive"
+    },
+    "eta_nu_exact": 2.6666666666666665,
+    "eta_nu_note": "4*epsilon/3 — exact at ALL orders (follows from beta(g*)=0 and beta=g*(-2eps+3*gamma_nu))",
+    "eta_lambda": 3.0,
+    "eta_lambda_note": "d + 2*epsilon - 4 — unchanged at 2-loop",
+    "criterion_3eta_nu_gt_eta_lambda": true,
+    "criterion_value": "3*eta_nu = 8.0 > eta_lambda = 3.0",
+    "C_K_1loop": 1.47,
+    "C_K_2loop": 3.02,
+    "skewness_1loop": -0.45,
+    "skewness_2loop": -0.15,
+    "experimental_C_K": 1.9,
+    "experimental_skewness": -0.28,
+    "Q_epsilon": "(1/3)*(20*epsilon)^(1/3)*[1 + 0.525*epsilon + O(epsilon^2)]"
+  },
+  "dimension_dependence": {
+    "d=2.5": {"lambda": -2.296, "B": 0.0013, "D": 0.0999, "c2": 0.103, "C_K_1loop": 1.72, "C_K_2loop": 4.74},
+    "d=3.0": {"lambda": -1.101, "B": -0.000057, "D": 0.06699, "c2": 0.0669, "C_K_1loop": 1.47, "C_K_2loop": 3.02},
+    "d=5.0": {"lambda": -0.560, "B": -0.00194, "D": 0.0436, "c2": 0.0397, "C_K_1loop": 1.35, "C_K_2loop": 1.84},
+    "d->inf": {"lambda": -0.3333, "B": "O(1/d)", "D": 0.03125, "c2": 0.03125, "C_K_1loop": "5.24/d", "C_K_2loop": "5.82/d"},
+    "d->2": {"lambda": "-1/(3*delta), delta=(d-2)/2", "note": "Diverges — additional UV divergence at d=2"}
+  },
+  "feynman_diagrams": {
+    "bare_propagators": {
+      "response": "<phi'phi>_0 = (-i*omega + nu_0*k^2)^(-1)",
+      "correlation": "<phi*phi>_0 = d_f(k) / (omega^2 + nu_0^2 * k^4)",
+      "response_response": "<phi'*phi'>_0 = 0"
+    },
+    "triple_vertex": "V_{ijs} = i*(k_j*delta_{is} + k_s*delta_{ij})",
+    "one_loop": {
+      "type": "self-energy (sunset)",
+      "description": "Single loop with one response propagator and one correlation propagator",
+      "result": "delta_nu ~ a_11 * g * k^2"
+    },
+    "two_loop": {
+      "diagrams": [
+        "R0: double sunset (two nested loops)",
+        "R1: vertex correction (iterated one-loop)",
+        "R2: overlapping loops",
+        "R3: crossed diagram"
+      ],
+      "total_diagrams": 4,
+      "key_result": "a_22 = a_11^2 (double pole), a_21/a_11^2 ≈ -1.65 (simple pole, d=3)"
+    }
+  },
+  "phase_A_comparison": {
+    "phase_A_Standard_K41": {
+      "g_star": 8.09,
+      "beta_prime": -1.54,
+      "nu_flow": 0.649,
+      "eta_nu": 2.36,
+      "eta_lambda": 7.08
+    },
+    "phase_A_Strong_Coupling": {
+      "g_star": 4.19,
+      "beta_prime": -2.22,
+      "nu_flow": 0.451
+    },
+    "twoloop_first_principles": {
+      "g_star_exact": 127.40,
+      "g_star_eps_exp": -316.35,
+      "omega_exact": 6.06,
+      "omega_eps_exp": 12.81,
+      "eta_nu_exact": 2.667,
+      "eta_lambda": 3.0,
+      "note": "Direct g* comparison impossible (different normalizations); η_ν shows 12% agreement; η_λ shows major discrepancy suggesting Phase A overestimates noise scaling"
+    }
+  },
+  "predictions": {
+    "energy_spectrum": {
+      "form": "E(k) = C_K * eps_bar^(2/3) * k^(-5/3)",
+      "C_K_range": [1.47, 3.02],
+      "C_K_best_estimate": 1.9,
+      "exponent_note": "-5/3 is exact at all orders (Kolmogorov scaling)"
+    },
+    "eddy_viscosity": {
+      "form": "nu_t(k) = C_nu * eps_bar^(1/3) * k^(-4/3)",
+      "scaling_note": "Follows from gamma_nu(g*) = 2*epsilon/3"
+    },
+    "energy_flux": {
+      "form": "Pi(k) = eps_bar (constant in inertial range)",
+      "note": "Exact result from energy conservation, independent of loop order"
+    },
+    "structure_functions": {
+      "K41_exponents": {"zeta_n": "n/3 (exact at 1-loop)"},
+      "she_leveque": {
+        "1": 0.3640, "2": 0.6959, "3": 1.0000, "4": 1.2797,
+        "5": 1.5380, "6": 1.7778, "7": 2.0013, "8": 2.2105
+      },
+      "zeta_3_exact": 1.0,
+      "note": "She-Leveque corrections from Paper 2 FNOxRG framework; vertex correction scale ~ |delta_zeta_4| = 0.054"
+    }
+  }
+}
