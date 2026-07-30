@@ -1,0 +1,291 @@
+{
+  "metadata": {
+    "framework": "FNO×RG",
+    "system": "Stratified Turbulence (Boussinesq)",
+    "date": "2026-07-16",
+    "confidence_levels": {
+      "HIGH": "Rigorously derived or strongly confirmed by DNS",
+      "MODERATE": "Derived at one-loop or tentatively confirmed",
+      "LOW": "Estimated or requires verification"
+    }
+  },
+
+  "fixed_points": {
+    "FP1_K41": {
+      "name": "Kolmogorov K41",
+      "g_b_star": 0,
+      "z": 0.6667,
+      "chi_v": 0.3333,
+      "E_v_exponent": -1.6667,
+      "E_b_exponent": -1.6667,
+      "zeta_p_v": "p/3",
+      "zeta_p_b": "p/3",
+      "stability": "IR-unstable in g_b direction",
+      "confidence": "HIGH"
+    },
+    "FP2_BO": {
+      "name": "Bolgiano-Obukhov",
+      "g_b_star": "nonzero (function of g*)",
+      "z": 0.4,
+      "chi_v": 0.6,
+      "chi_b": 0.2,
+      "E_v_exponent": -2.2,
+      "E_b_exponent": -1.4,
+      "E_H_exponent": -1.8,
+      "zeta_p_v_mf": "3p/5",
+      "zeta_p_b_mf": "p/5",
+      "Pi_v_k_exponent": -0.8,
+      "Pi_b_k_exponent": 0,
+      "K_0_BO_amplitude": {
+        "value": 0.1,
+        "range": [0.05, 0.2],
+        "source": "Bhattacharjee 2022 stirred model",
+        "confidence": "MODERATE"
+      },
+      "stability": "IR-stable",
+      "confidence": "HIGH"
+    },
+    "FP3_2D": {
+      "name": "2D/anisotropic limit",
+      "g_b_star": "infinity",
+      "E_v_horizontal_exponent": -1.6667,
+      "E_v_vertical_exponent": -3.0,
+      "aspect_ratio": "l_v/l_h ~ Fr",
+      "zeta_p_v_horizontal": "p/3 (re-entrant K41)",
+      "zeta_p_v_vertical": "p (steep, wave-dominated)",
+      "stability": "IR-attractive for Fr << 1",
+      "confidence": "MODERATE"
+    }
+  },
+
+  "crossover_scales": {
+    "Bolgiano_wavenumber": {
+      "formula": "k_B ~ N^{3/2} ε_v^{-5/4} ε_b^{3/4}",
+      "physical_meaning": "K41 → BO transition",
+      "confidence": "HIGH"
+    },
+    "Ozmidov_wavenumber": {
+      "formula": "k_Oz = (N³/ε_v)^{1/2}",
+      "physical_meaning": "BO → K41 recovery (isotropy recovery scale)",
+      "confidence": "HIGH"
+    },
+    "Buoyancy_scale": {
+      "formula": "l_b = U/N",
+      "physical_meaning": "Vertical length scale of stratified eddies",
+      "confidence": "HIGH"
+    }
+  },
+
+  "crossover_scaling": {
+    "critical_Froude_number": {
+      "value": 1.0,
+      "range": [0.5, 2.0],
+      "confidence": "MODERATE"
+    },
+    "crossover_exponent_phi": {
+      "value": 2.5,
+      "range": [2.0, 3.0],
+      "derivation": "one-loop RG: φ = 1/(1 - χ_{g_b}^{anom})",
+      "confidence": "MODERATE"
+    },
+    "spectral_crossover_exponent_phi_prime": {
+      "value": 0.8,
+      "derivation": "from Π_v(k) ~ k^{-4/5}",
+      "confidence": "HIGH"
+    }
+  },
+
+  "intermittency_parameters": {
+    "velocity_mu_v": {
+      "value": 0.25,
+      "error": 0.05,
+      "source": "de Bruyn Kops 2015, JFM 775, Re_b=48-220",
+      "measurement_scale": "near Taylor microscale",
+      "confidence": "MODERATE"
+    },
+    "buoyancy_mu_b": {
+      "value": 0.35,
+      "error": 0.10,
+      "source": "de Bruyn Kops 2015, JFM 775, Re_b=48-220",
+      "measurement_scale": "near Taylor microscale",
+      "confidence": "MODERATE"
+    },
+    "cross_intermittency_mu_vb": {
+      "value": 0.30,
+      "error": 0.05,
+      "derivation": "estimate: (μ_v + μ_b)/2",
+      "confidence": "LOW"
+    },
+    "BO_hierarchical_parameter_beta": {
+      "value": 0.737,
+      "derivation": "β_{BO} = (2/5)^{1/3}, from D_{BO} ≈ 7/3",
+      "confidence": "LOW"
+    },
+    "BO_intermittent_structure_dimension": {
+      "value": 2.333,
+      "derivation": "D_{BO} ≈ 7/3 (KH billows in stratified layers)",
+      "confidence": "LOW"
+    }
+  },
+
+  "intermittency_corrected_structure_functions": {
+    "note": "Estimates for BO regime with intermittency corrections",
+    "confidence": "LOW",
+    "zeta_p_v_BO": {
+      "p2": {"mean_field": 1.200, "with_intermittency": 1.15},
+      "p3": {"mean_field": 1.800, "with_intermittency": 1.70},
+      "p4": {"mean_field": 2.400, "with_intermittency": 2.25},
+      "p5": {"mean_field": 3.000, "with_intermittency": 2.78},
+      "p6": {"mean_field": 3.600, "with_intermittency": 3.30}
+    }
+  },
+
+  "anisotropy_parameters": {
+    "aspect_ratio_l_v_over_l_h": {
+      "formula": "l_v/l_h ~ Fr for Re_b >> 1",
+      "alternative": "l_v/l_h ~ Re^{-1/2} for Re_b << 1",
+      "source": "Billant-Chomaz 2001, Brethouwer et al. 2007",
+      "confidence": "HIGH"
+    },
+    "Re_b_for_small_scale_isotropy": {
+      "threshold": 500,
+      "source": "Lang & Waite 2019",
+      "confidence": "MODERATE"
+    },
+    "spectral_anisotropy_exponent": {
+      "formula": "E_v(k_h)/E_v(k_z)|_{k_h=k_z} ~ (k_Oz/k)^{4/3}",
+      "valid_for": "k < k_Oz",
+      "confidence": "MODERATE"
+    }
+  },
+
+  "vertical_velocity_scaling": {
+    "SSA_Billant_Chomaz": {
+      "formula": "w ~ Fr · U",
+      "regime": "outside turbulent patches, or Re_b ~ O(1)",
+      "source": "Brethouwer et al. 2007",
+      "confidence": "HIGH"
+    },
+    "MSA_Chini_et_al": {
+      "formula": "w ~ Fr^{1/2} · U",
+      "regime": "within turbulent patches, Re_b >> 1",
+      "source": "Chini et al. 2022, Garaud et al. 2024",
+      "confidence": "MODERATE"
+    },
+    "turbulent_patch_filling_factor": {
+      "formula": "φ_turb ~ Fr^{1/2}",
+      "confidence": "LOW"
+    }
+  },
+
+  "mixing_efficiency": {
+    "BO_fixed_point": {
+      "value": 0.2,
+      "range": [0.15, 0.25],
+      "confidence": "MODERATE"
+    },
+    "linear_Fr_scaling": {
+      "formula": "Γ ∝ Fr",
+      "range": "0.05 < Fr < 0.3",
+      "source": "Feraco et al. 2018",
+      "confidence": "MODERATE"
+    },
+    "strong_stratification_limit": {
+      "value": 0.1,
+      "confidence": "LOW"
+    }
+  },
+
+  "buoyancy_flux": {
+    "kurtosis_scaling": {
+      "formula": "Kurt(B_f) increases with Re_b",
+      "peak_kurtosis": "~100",
+      "source": "Song et al. 2026",
+      "confidence": "MODERATE"
+    },
+    "skewness_scaling": {
+      "formula": "Skew(B_f) ~ Re_b^γ, saturating at passive-scalar limit",
+      "confidence": "LOW"
+    }
+  },
+
+  "DNS_benchmark_data": {
+    "Rosenberg_2015_4096": {
+      "grid": "4096³",
+      "Re": 55000,
+      "Fr": 0.024,
+      "Re_b": 32,
+      "N/f": 4.95,
+      "epsilon_V": 0.0123,
+      "epsilon_P": 0.0077,
+      "eta": 0.00152,
+      "U_rms": 0.83,
+      "observed_large_scale_spectrum": "BO k^{-11/5}",
+      "observed_small_scale_spectrum": "K41 k^{-5/3}",
+      "source": "Rosenberg et al. 2015, Phys. Fluids 27, 055105"
+    },
+    "deBruynKops_2015": {
+      "grid": "8192×8192×4096",
+      "Re_b_values": [13, 48, 220],
+      "Pr": 1,
+      "mu_v": 0.25,
+      "mu_b": 0.35,
+      "KOC_scaling_observed": true,
+      "four_fifths_law": false,
+      "source": "de Bruyn Kops 2015, JFM 775, 436-463"
+    },
+    "Lindborg_2006": {
+      "horizontal_spectrum_slope": -1.6667,
+      "C1_constant": 0.51,
+      "C1_error": 0.02,
+      "C2_constant": 0.51,
+      "C2_error": 0.02,
+      "source": "Lindborg 2006, JFM 550, 207-242"
+    },
+    "Brethouwer_2007": {
+      "R_values": [0.1, 0.4, 1.1, 3.0, 9.3],
+      "l_v_scaling_R_gt_1": "l_v ~ U/N",
+      "l_v_scaling_R_lt_1": "l_v ~ l_h Re^{-1/2}",
+      "source": "Brethouwer et al. 2007, JFM 585, 343-368"
+    },
+    "Song_2026_shear_driven": {
+      "Fr_range": [0.004, 0.224],
+      "Re_range": [2608, 4032],
+      "Re_b_range": [0.037, 151.7],
+      "Pr_values": [1, 6],
+      "VSHF_dominance_Fr_range": "0.006-0.04",
+      "source": "Song et al. 2026, arXiv:2606.09490"
+    }
+  },
+
+  "atmospheric_observations": {
+    "Nastrom_Gage_1985": {
+      "synoptic_slope": -3.0,
+      "mesoscale_slope": -1.6667,
+      "wavelength_range_synoptic_km": [500, 3000],
+      "wavelength_range_mesoscale_km": [1, 400],
+      "source": "Nastrom & Gage 1985, J. Atmos. Sci. 42, 950"
+    },
+    "ocean_Fr_range": {
+      "Fr": [0.0001, 0.01],
+      "u_rms_ms": [0.1, 2.0],
+      "integral_scale_m": [10000, 100000],
+      "source": "Jimenez 1998, various compilations"
+    }
+  },
+
+  "prediction_verification_status": {
+    "E_k_11_5_BO_spectrum": "CONFIRMED (limited range, Rosenberg 2015, Kumar 2014)",
+    "E_kh_5_3_horizontal": "STRONGLY_CONFIRMED (multiple DNS and atmospheric data)",
+    "E_kz_3_vertical": "STRONGLY_CONFIRMED (Brethouwer 2007, atmospheric obs.)",
+    "l_v_l_h_Fr_scaling": "STRONGLY_CONFIRMED (Brethouwer 2007, Billant-Chomaz 2001)",
+    "w_Fr_SSA": "CONFIRMED (Brethouwer 2007, Garaud 2024)",
+    "w_Fr_half_MSA": "TENTATIVELY_CONFIRMED (Maffioli-Davidson 2016, Garaud 2024)",
+    "mu_v_0_25": "PARTIALLY_CONFIRMED (de Bruyn Kops 2015, near Taylor scale)",
+    "mu_b_0_35": "PARTIALLY_CONFIRMED (de Bruyn Kops 2015)",
+    "bimodal_dissipation_PDF": "CONFIRMED (de Bruyn Kops 2015)",
+    "re_entrant_K41_Fr_lt_0_01": "UNCONFIRMED (requires exascale DNS)",
+    "Gamma_Fr_linear": "TENTATIVELY_CONFIRMED (Feraco 2018)",
+    "K_0_BO_0_1": "CONSISTENT (Bhattacharjee 2022, indirect)"
+  }
+}
